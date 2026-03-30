@@ -189,7 +189,7 @@ with tab1:
             cantidad = st.number_input("Cantidad *", min_value=1, value=1, step=1)
 
         with c2:
-            precio = st.number_input("Precio unitario (COP) *", min_value=0, step=500, value=)
+            precio = st.number_input("Precio unitario (COP) *", min_value=0, step=500, value="")
             total = precio * cantidad
             st.markdown(f"""
             <div style="background:#2C1A0E;border-radius:12px;padding:14px 20px;text-align:center;margin-top:8px">
