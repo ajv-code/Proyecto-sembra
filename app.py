@@ -8,7 +8,7 @@ import plotly.express as px
 
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Sembra · Ventas",
+    page_title="Sembra - Ventas",
     page_icon="☕",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -91,7 +91,7 @@ SCOPES = [
 ]
 SHEET_NAME = "Ventas"
 CONFIG_SHEET = "Config"
-HEADERS = ["Fecha", "Cliente", "Tipo", "Variedad", "Presentación",
+HEADERS = ["Fecha", "Cliente", "Tipo", "Variedad/Origen", "Presentación",
            "Cantidad", "Precio unitario", "Total", "Canal", "Pago", "Ciudad", "Notas"]
 
 @st.cache_resource
@@ -128,11 +128,11 @@ def guardar_venta(row: list):
 
 def cargar_config():
     defaults = {
-        "variedades": ["Caturra", "Castillo", "Colombia", "Geisha", "Borbón"],
+        "variedades": ["Castillo Natural - Andes", "Variedad 2000 Lavado - Andes", "Geisha Lavado - Andes"],
         "tipos": ["Molido", "En grano"],
         "presentaciones": ["250g", "500g"],
         "canales": ["WhatsApp", "Instagram", "Facebook", "Presencial", "Otro"],
-        "pagos": ["Efectivo", "Nequi", "Daviplata", "Transferencia", "Otro"]
+        "pagos": ["Efectivo", "Transferencia", "Otro"]
     }
     try:
         ws = get_sheet(CONFIG_SHEET)
